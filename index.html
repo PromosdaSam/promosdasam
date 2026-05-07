@@ -2,13 +2,188 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Promos da Sam Oficial</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
-    h1 { color: #e60023; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #f0f0f0;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #f08234, #f8551a);
+      padding: 60px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(255, 100, 0, 0.4);
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    header p {
+      margin-top: 12px;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 20px;
+      background: rgba(0,0,0,0.25);
+      border-radius: 30px;
+      padding: 8px 20px;
+      font-size: 0.9rem;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 30px 24px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(255, 100, 0, 0.2);
+    }
+
+    .card .icon {
+      font-size: 2.4rem;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      color: #ff6a00;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #aaa;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .cta {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: linear-gradient(135deg, #f08234, #f8551a);
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 40px;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 16px rgba(255, 100, 0, 0.4);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .cta a:hover {
+      opacity: 0.9;
+      transform: scale(1.03);
+    }
+
+    .about {
+      background: #1a1a1a;
+      border-left: 4px solid #ff6a00;
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 40px;
+      color: #ccc;
+      line-height: 1.8;
+      font-size: 0.97rem;
+    }
+
+    .about strong {
+      color: #ff6a00;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #444;
+      font-size: 0.85rem;
+      border-top: 1px solid #1e1e1e;
+    }
+
+    footer a {
+      color: #ff6a00;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-  <h1>Promos da Sam Oficial</h1>
-  <p>Canal de curadoria de ofertas e produtos em promoção para consumidores brasileiros.</p>
-  <p>Selecionamos as melhores ofertas do dia com
+
+  <header>
+    <h1>🔥 Promos da Sam Oficial</h1>
+    <p>Curadoria inteligente de ofertas para você economizar de verdade</p>
+    <span class="badge">📡 Canal ativo no Telegram</span>
+  </header>
+
+  <main>
+
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🛒</div>
+        <h3>Ofertas Selecionadas</h3>
+        <p>Garimpamos as melhores promoções do dia em Amazon, Shopee, Mercado Livre e mais.</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Atualizações em Tempo Real</h3>
+        <p>Postagens automáticas assim que identificamos um preço abaixo da média do mercado.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📌</div>
+        <h3>Conteúdo no Pinterest</h3>
+        <p>Pins organizados por categoria para você descobrir achados de forma visual e prática.</p>
+      </div>
+    </div>
+
+    <div class="about">
+      <strong>Sobre o projeto:</strong> A Promos da Sam Oficial é um canal de curadoria automatizada de ofertas e produtos em promoção. Utilizamos tecnologia para selecionar, validar e publicar as melhores oportunidades de compra, com links de afiliados que nos ajudam a manter o projeto ativo sem custo para você.
+    </div>
+
+    <div class="cta">
+      <a href="https://t.me/PromosDaSamOficial" target="_blank">📲 Entrar no Canal do Telegram</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Promos da Sam Oficial · <a href="/promosdasam/privacidade">Política de Privacidade</a></p>
+  </footer>
+
+</body>
+</html>
