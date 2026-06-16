@@ -22,8 +22,7 @@
       --orange-dk:   #e8430a;
       --orange-lt:   #ff8c40;
       --orange-xlt:  #fff0e6;
-      --orange-pale: #fff8f3;
-      --bg:          #fff8f3;
+      --bg:          #fff5ee;
       --card:        #ffffff;
       --border:      #ffd8bb;
       --text:        #1a0800;
@@ -31,8 +30,8 @@
       --text-3:      #a06040;
       --radius-card: 16px;
       --radius-pill: 100px;
-      --shadow:      0 2px 16px rgba(255,106,0,0.10);
-      --shadow-hov:  0 8px 32px rgba(255,106,0,0.18);
+      --shadow:      0 2px 16px rgba(255,106,0,0.08);
+      --shadow-hov:  0 8px 32px rgba(255,106,0,0.16);
     }
 
     html { scroll-behavior: smooth; }
@@ -45,32 +44,10 @@
       line-height: 1.5;
     }
 
-    /* ── Lang switch ──────────────────────────────────── */
-    .lang-bar {
-      background: var(--orange);
-      display: flex;
-      justify-content: flex-end;
-      padding: 6px 20px;
-    }
-
-    .lang-bar a {
-      color: rgba(255,255,255,0.8);
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      transition: color 0.15s;
-    }
-
-    .lang-bar a:hover { color: #fff; }
-
     /* ── Hero ─────────────────────────────────────────── */
     .hero {
-      background: linear-gradient(160deg, #ff8c00 0%, #ff4500 60%, #cc2200 100%);
-      padding: 48px 20px 72px;
+      background: linear-gradient(160deg, #ffb060 0%, #ff8028 55%, #f05510 100%);
+      padding: 52px 20px 76px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -80,8 +57,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 30% 20%, rgba(255,200,100,0.18) 0%, transparent 60%),
-                  radial-gradient(ellipse at 70% 80%, rgba(200,0,0,0.15) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 25% 15%, rgba(255,220,140,0.22) 0%, transparent 55%);
       pointer-events: none;
     }
 
@@ -97,10 +73,10 @@
     }
 
     .hero-logo {
-      font-size: clamp(4rem, 12vw, 7rem);
+      font-size: clamp(4.5rem, 13vw, 7.5rem);
       line-height: 1;
-      margin-bottom: 12px;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+      margin-bottom: 14px;
+      filter: drop-shadow(0 4px 14px rgba(0,0,0,0.18));
       display: block;
     }
 
@@ -108,19 +84,19 @@
       font-size: clamp(1.6rem, 5vw, 2.4rem);
       font-weight: 800;
       color: #fff;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.15);
       letter-spacing: -0.5px;
     }
 
     .hero p {
       margin-top: 10px;
-      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
-      color: rgba(255,255,255,0.88);
-      max-width: 440px;
+      font-size: clamp(0.88rem, 2.4vw, 1rem);
+      color: rgba(255,255,255,0.9);
+      max-width: 400px;
       margin-inline: auto;
     }
 
-    /* Social row (no Telegram/WhatsApp CTAs for EN) */
+    /* ── Social pills (no Telegram/WhatsApp for EN) ───── */
     .social-row {
       display: flex;
       justify-content: center;
@@ -132,20 +108,26 @@
     .social-pill {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
+      gap: 6px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
       color: #fff;
       text-decoration: none;
       padding: 8px 16px;
       border-radius: var(--radius-pill);
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       font-weight: 600;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
       transition: background 0.15s;
     }
 
-    .social-pill:hover { background: rgba(255,255,255,0.25); }
+    .social-pill:hover { background: rgba(255,255,255,0.28); }
+
+    .pill-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
 
     /* ── Controls ─────────────────────────────────────── */
     .controls {
@@ -156,27 +138,27 @@
 
     .search-wrap {
       position: relative;
-      max-width: 560px;
+      max-width: 540px;
       margin: 0 auto 20px;
     }
 
-    .search-wrap svg {
+    .search-wrap .search-icon {
       position: absolute;
       left: 16px;
       top: 50%;
       transform: translateY(-50%);
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
       color: var(--text-3);
       pointer-events: none;
     }
 
     #search {
       width: 100%;
-      padding: 14px 20px 14px 46px;
+      padding: 13px 20px 13px 44px;
       border: 2px solid var(--border);
       border-radius: var(--radius-pill);
-      font-size: 0.97rem;
+      font-size: 0.95rem;
       background: var(--card);
       color: var(--text);
       outline: none;
@@ -190,7 +172,6 @@
 
     #search::placeholder { color: var(--text-3); }
 
-    /* Category pills */
     .cats {
       display: flex;
       gap: 8px;
@@ -200,30 +181,31 @@
     }
 
     .cat-btn {
-      padding: 7px 16px;
+      padding: 7px 15px;
       border-radius: var(--radius-pill);
       border: 1.5px solid var(--border);
       background: var(--card);
       color: var(--text-2);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s;
       white-space: nowrap;
     }
 
-    .cat-btn:hover {
-      border-color: var(--orange-lt);
-      color: var(--orange);
+    .cat-btn:hover { border-color: var(--orange-lt); color: var(--orange); }
+    .cat-btn.active { background: var(--orange); border-color: var(--orange); color: #fff; }
+
+    /* ── Grid ─────────────────────────────────────────── */
+    .grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
     }
 
-    .cat-btn.active {
-      background: var(--orange);
-      border-color: var(--orange);
-      color: #fff;
-    }
-
-    /* Empty state */
     .empty {
       text-align: center;
       padding: 64px 20px;
@@ -232,16 +214,6 @@
     }
 
     .empty span { font-size: 3rem; display: block; margin-bottom: 12px; }
-
-    /* ── Product grid ─────────────────────────────────── */
-    .grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px 60px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 18px;
-    }
 
     /* ── Product card ─────────────────────────────────── */
     .product-card {
@@ -269,10 +241,9 @@
       color: inherit;
     }
 
-    /* Video area — 9:16 vertical */
     .card-media {
       aspect-ratio: 9/16;
-      background: linear-gradient(160deg, #ff8c00, #cc2200);
+      background: linear-gradient(160deg, #ffad5c, #f05510);
       overflow: hidden;
       position: relative;
       flex-shrink: 0;
@@ -285,7 +256,7 @@
       display: block;
     }
 
-    .card-media .placeholder-media {
+    .placeholder-media {
       width: 100%;
       height: 100%;
       display: flex;
@@ -295,26 +266,26 @@
       gap: 8px;
     }
 
-    .card-media .placeholder-media span {
-      font-size: 3.2rem;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+    .placeholder-media span {
+      font-size: 3rem;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.18));
     }
 
-    .card-media .placeholder-media small {
-      font-size: 0.68rem;
-      color: rgba(255,255,255,0.7);
+    .placeholder-media small {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.72);
       font-weight: 600;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
       text-transform: uppercase;
     }
 
-    .card-media .play-icon {
+    .play-icon {
       position: absolute;
       inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0,0,0,0.08);
+      background: rgba(0,0,0,0.06);
       opacity: 0;
       transition: opacity 0.2s;
     }
@@ -322,35 +293,22 @@
     .product-card:hover .play-icon { opacity: 1; }
 
     .play-icon svg {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       fill: rgba(255,255,255,0.9);
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
-    }
-
-    .card-badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: var(--orange);
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 800;
-      padding: 3px 9px;
-      border-radius: var(--radius-pill);
-      letter-spacing: 0.3px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.28));
     }
 
     .card-body {
-      padding: 12px 13px 14px;
+      padding: 11px 12px 13px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 5px;
       flex: 1;
     }
 
     .card-cat {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 700;
       color: var(--orange);
       text-transform: uppercase;
@@ -358,7 +316,7 @@
     }
 
     .card-name {
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 700;
       color: var(--text);
       line-height: 1.35;
@@ -368,115 +326,110 @@
       overflow: hidden;
     }
 
-    .card-prices {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    .card-price {
-      font-size: 0.95rem;
-      font-weight: 800;
-      color: var(--orange-dk);
-    }
-
-    .card-orig {
-      font-size: 0.75rem;
-      color: var(--text-3);
-      text-decoration: line-through;
-    }
-
     .card-cta {
       display: block;
       text-align: center;
-      margin-top: 8px;
+      margin-top: 6px;
       padding: 8px;
       border-radius: 8px;
       background: var(--orange-xlt);
       color: var(--orange-dk);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
-      transition: background 0.15s;
+      transition: background 0.15s, color 0.15s;
     }
 
-    .product-card:hover .card-cta {
-      background: var(--orange);
-      color: #fff;
-    }
+    .product-card:hover .card-cta { background: var(--orange); color: #fff; }
 
     /* ── Footer ───────────────────────────────────────── */
     footer {
-      background: var(--orange-dk);
-      color: rgba(255,255,255,0.7);
+      background: #c8360a;
+      color: rgba(255,255,255,0.72);
       text-align: center;
-      padding: 28px 20px;
+      padding: 26px 20px;
       font-size: 0.82rem;
     }
 
-    footer a {
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-    }
-
+    footer a { color: rgba(255,255,255,0.88); text-decoration: none; }
     footer a:hover { color: #fff; text-decoration: underline; }
 
     footer .footer-links {
       display: flex;
       justify-content: center;
       gap: 16px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       flex-wrap: wrap;
     }
 
     /* ── Responsive ───────────────────────────────────── */
     @media (max-width: 600px) {
-      .hero { padding: 36px 16px 60px; }
-      .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; padding-inline: 12px; }
-      .card-body { padding: 10px 10px 12px; }
-      .card-name { font-size: 0.82rem; }
-    }
-
-    @media (min-width: 900px) {
-      .grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+      .hero { padding: 40px 16px 64px; }
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 11px; padding-inline: 12px; }
+      .card-body { padding: 9px 10px 11px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Language switch -->
-  <div class="lang-bar">
-    <a href="/" aria-label="Mudar para Português">🌐 Português</a>
-  </div>
-
-  <!-- Hero -->
   <header class="hero" role="banner">
     <span class="hero-logo" aria-hidden="true">🔥</span>
     <h1>Sam's Best Deals</h1>
-    <p>Top products of the day, curated for you — click and save!</p>
+    <p>Top products of the day, curated for you — click and grab yours!</p>
 
-    <!-- No Telegram / WhatsApp for English version -->
+    <!-- No Telegram / WhatsApp for the international version -->
     <div class="social-row" aria-label="Follow us">
+
       <a href="https://pinterest.com/promosdasam" class="social-pill"
-         target="_blank" rel="noopener noreferrer">📌 Pinterest</a>
+         target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+        <svg class="pill-icon" viewBox="0 0 496 512" fill="#fff" aria-hidden="true">
+          <path d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/>
+        </svg>
+        Pinterest
+      </a>
+
       <a href="https://tiktok.com/@promosdasam" class="social-pill"
-         target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
+         target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <svg class="pill-icon" viewBox="0 0 448 512" fill="#fff" aria-hidden="true">
+          <path d="M448 209.9a210.1 210.1 0 0 1-122.8-39.3v178.7A162.6 162.6 0 1 1 185 188.3v89.9a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2 122.2 122.2 0 0 0 54.3 79.8 121.4 121.4 0 0 0 66.6 20.1z"/>
+        </svg>
+        TikTok
+      </a>
+
       <a href="https://instagram.com/promosdasam" class="social-pill"
-         target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+         target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg class="pill-icon" viewBox="0 0 448 512" fill="#fff" aria-hidden="true">
+          <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+        </svg>
+        Instagram
+      </a>
+
+      <a href="https://facebook.com/promosdasam" class="social-pill"
+         target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg class="pill-icon" viewBox="0 0 512 512" fill="#fff" aria-hidden="true">
+          <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/>
+        </svg>
+        Facebook
+      </a>
+
       <a href="https://youtube.com/@promosdasam" class="social-pill"
-         target="_blank" rel="noopener noreferrer">▶️ YouTube</a>
+         target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <svg class="pill-icon" viewBox="0 0 576 512" fill="#fff" aria-hidden="true">
+          <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6C14.9 167 14.9 256 14.9 256s0 89 11.4 131.9c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.1 48.3-47.8C561.1 345 561.1 256 561.1 256s0-89-11.4-131.9zM232.1 337.6V175.4l142.7 81.1-142.7 81.1z"/>
+        </svg>
+        YouTube
+      </a>
+
     </div>
   </header>
 
-  <!-- Controls -->
+  <!-- Search and filters -->
   <section class="controls" aria-label="Filters and search">
     <div class="search-wrap">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
       </svg>
       <input type="search" id="search" placeholder="Search products..." aria-label="Search products" autocomplete="off">
     </div>
-
     <div class="cats" id="cats" role="group" aria-label="Categories"></div>
   </section>
 
@@ -493,121 +446,42 @@
     <div class="footer-links">
       <a href="/privacidade.html">Privacy Policy</a>
       <a href="https://pinterest.com/promosdasam" target="_blank" rel="noopener noreferrer">Pinterest</a>
-      <a href="/">Português 🇧🇷</a>
     </div>
     <p>© 2026 Sam's Best Deals · Affiliate links help keep this project running at no cost to you</p>
   </footer>
 
   <script>
     /* ─────────────────────────────────────────────────────
-       PRODUCTS — edit here to add / remove products
+       PRODUCTS — add / remove products here
        Fields:
-         id           → unique identifier (string)
-         name         → product display name
-         category     → must match an id from CATEGORIES
-         video        → path to .mp4 file (or null)
-         price        → current price (string)
-         originalPrice → crossed-out old price (or null)
-         discount     → badge text, e.g. "60% OFF" (or null)
-         link         → affiliate link
+         id       → unique identifier
+         name     → product display name
+         category → must match an id from CATEGORIES below
+         video    → path to .mp4 file (or null)
+         link     → affiliate link
     ───────────────────────────────────────────────────── */
     const PRODUCTS = [
-      {
-        id: "e001",
-        name: "TWS Wireless Earbuds Noise Cancelling",
-        category: "electronics",
-        video: null,
-        price: "$14.99",
-        originalPrice: "$39.99",
-        discount: "63% OFF",
-        link: "#"
-      },
-      {
-        id: "e002",
-        name: "12-Cup Stainless Steel Coffee Maker",
-        category: "home",
-        video: null,
-        price: "$18.99",
-        originalPrice: "$34.99",
-        discount: "46% OFF",
-        link: "#"
-      },
-      {
-        id: "e003",
-        name: "Premium Dry-Fit Sports T-Shirt",
-        category: "fashion",
-        video: null,
-        price: "$7.99",
-        originalPrice: null,
-        discount: null,
-        link: "#"
-      },
-      {
-        id: "e004",
-        name: "Vitamin C Brightening Serum 30ml",
-        category: "beauty",
-        video: null,
-        price: "$9.99",
-        originalPrice: "$19.99",
-        discount: "50% OFF",
-        link: "#"
-      },
-      {
-        id: "e005",
-        name: "Women's Lightweight Running Shoes",
-        category: "sports",
-        video: null,
-        price: "$24.99",
-        originalPrice: "$49.99",
-        discount: "50% OFF",
-        link: "#"
-      },
-      {
-        id: "e006",
-        name: "STEM Educational Toy Set 3+ Years",
-        category: "kids",
-        video: null,
-        price: "$11.99",
-        originalPrice: "$21.99",
-        discount: "45% OFF",
-        link: "#"
-      },
-      {
-        id: "e007",
-        name: "Sports Smartwatch with Heart Rate & GPS",
-        category: "electronics",
-        video: null,
-        price: "$29.99",
-        originalPrice: "$69.99",
-        discount: "57% OFF",
-        link: "#"
-      },
-      {
-        id: "e008",
-        name: "Adjustable Brightness LED Desk Lamp",
-        category: "home",
-        video: null,
-        price: "$13.99",
-        originalPrice: null,
-        discount: null,
-        link: "#"
-      }
+      { id: "e001", name: "TWS Wireless Earbuds Noise Cancelling",     category: "electronics", video: null, link: "#" },
+      { id: "e002", name: "12-Cup Stainless Steel Coffee Maker",        category: "home",        video: null, link: "#" },
+      { id: "e003", name: "Premium Dry-Fit Sports T-Shirt",            category: "fashion",     video: null, link: "#" },
+      { id: "e004", name: "Vitamin C Brightening Serum 30ml",          category: "beauty",      video: null, link: "#" },
+      { id: "e005", name: "Women's Lightweight Running Shoes",         category: "sports",      video: null, link: "#" },
+      { id: "e006", name: "STEM Educational Toy Set 3+ Years",         category: "kids",        video: null, link: "#" },
+      { id: "e007", name: "Sports Smartwatch with Heart Rate & GPS",   category: "electronics", video: null, link: "#" },
+      { id: "e008", name: "Adjustable Brightness LED Desk Lamp",       category: "home",        video: null, link: "#" },
     ];
 
-    /* ─────────────────────────────────────────────────────
-       CATEGORIES — edit here to change filters
-    ───────────────────────────────────────────────────── */
     const CATEGORIES = [
-      { id: "all",         label: "🔥 All" },
-      { id: "electronics", label: "⚡ Electronics" },
-      { id: "home",        label: "🏠 Home" },
-      { id: "fashion",     label: "👗 Fashion" },
-      { id: "beauty",      label: "✨ Beauty" },
-      { id: "sports",      label: "🏃 Sports" },
-      { id: "kids",        label: "🧸 Kids" }
+      { id: "all",         label: "All" },
+      { id: "electronics", label: "Electronics" },
+      { id: "home",        label: "Home" },
+      { id: "fashion",     label: "Fashion" },
+      { id: "beauty",      label: "Beauty" },
+      { id: "sports",      label: "Sports" },
+      { id: "kids",        label: "Kids" },
     ];
 
-    const CATEGORY_LABELS = Object.fromEntries(
+    const CAT_LABEL = Object.fromEntries(
       CATEGORIES.filter(c => c.id !== "all").map(c => [c.id, c.label])
     );
 
@@ -634,38 +508,31 @@
       });
     }
 
+    function esc(s) {
+      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")
+                      .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
     function cardHTML(p) {
-      const catLabel = (CATEGORY_LABELS[p.category] || p.category).replace(/^\S+\s/, "");
-
-      const mediaContent = p.video
-        ? `<video src="${escAttr(p.video)}" autoplay muted loop playsinline preload="metadata"></video>`
-        : `<div class="placeholder-media">
-             <span>🔥</span>
-             <small>Click to see the deal</small>
-           </div>`;
-
-      const badge     = p.discount ? `<span class="card-badge">${esc(p.discount)}</span>` : "";
-      const origPrice = p.originalPrice ? `<span class="card-orig">${esc(p.originalPrice)}</span>` : "";
+      const catLabel = CAT_LABEL[p.category] || p.category;
+      const media = p.video
+        ? `<video src="${esc(p.video)}" autoplay muted loop playsinline preload="metadata"></video>`
+        : `<div class="placeholder-media"><span>🔥</span><small>Click to see deal</small></div>`;
 
       return `
-        <article class="product-card" data-category="${escAttr(p.category)}">
-          <a href="${escAttr(p.link)}" class="card-link"
+        <article class="product-card" data-category="${esc(p.category)}">
+          <a href="${esc(p.link)}" class="card-link"
              target="_blank" rel="noopener noreferrer sponsored"
-             aria-label="${escAttr(p.name)} — see deal">
+             aria-label="${esc(p.name)} — see deal">
             <div class="card-media">
-              ${mediaContent}
+              ${media}
               <div class="play-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
               </div>
-              ${badge}
             </div>
             <div class="card-body">
               <span class="card-cat">${esc(catLabel)}</span>
               <h2 class="card-name">${esc(p.name)}</h2>
-              <div class="card-prices">
-                <span class="card-price">${esc(p.price)}</span>
-                ${origPrice}
-              </div>
               <span class="card-cta">See deal →</span>
             </div>
           </a>
@@ -679,19 +546,11 @@
         const matchQuery = !q || p.name.toLowerCase().includes(q);
         return matchCat && matchQuery;
       });
-
       const grid  = document.getElementById("grid");
       const empty = document.getElementById("empty");
-      grid.innerHTML  = filtered.map(cardHTML).join("");
+      grid.innerHTML = filtered.map(cardHTML).join("");
       empty.style.display = filtered.length === 0 ? "block" : "none";
     }
-
-    function esc(str) {
-      return String(str)
-        .replace(/&/g,"&amp;").replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-    }
-    function escAttr(str) { return esc(str); }
 
     document.getElementById("search").addEventListener("input", e => {
       searchQuery = e.target.value;
