@@ -4,56 +4,102 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Política de Privacidade — Promos da Sam Oficial</title>
+  <meta name="description" content="Política de privacidade do canal Promos da Sam Oficial. Saiba como tratamos informações no contexto da integração com a API do Pinterest.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-ancestors 'none';">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-base:    #0f0f10;
+      --bg-card:    #1a1a1e;
+      --bg-subtle:  #212126;
+      --border:     #2a2a30;
+      --orange:     #ff6a00;
+      --orange-lt:  #ff8c40;
+      --text:       #e8e8ea;
+      --text-muted: #888892;
+    }
 
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background-color:  #4c4c4d;
-      color: #f0f0f0;
+      font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text);
       min-height: 100vh;
+      line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(135deg, #f08234, #f86733);
-      padding: 40px 20px;
+      background: linear-gradient(135deg, #f08234 0%, #e8431a 100%);
+      padding: 48px 20px 40px;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(255, 100, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 28px;
+      background: var(--bg-base);
+      clip-path: ellipse(60% 100% at 50% 100%);
     }
 
     header h1 {
-      font-size: 2rem;
+      font-size: clamp(1.4rem, 4vw, 2rem);
       font-weight: 800;
       color: #fff;
     }
 
     header p {
       margin-top: 8px;
-      color: rgba(255,255,255,0.85);
-      font-size: 0.95rem;
+      color: rgba(255,255,255,0.82);
+      font-size: 0.9rem;
     }
 
     main {
       max-width: 760px;
       margin: 0 auto;
-      padding: 50px 20px;
+      padding: 52px 20px 40px;
     }
 
     .section {
-      background: #1a1a1a;
-      border-left: 4px solid #ff6a00;
+      background: var(--bg-card);
+      border-left: 3px solid var(--orange);
       border-radius: 12px;
-      padding: 24px 24px;
-      margin-bottom: 24px;
+      padding: 22px 22px;
+      margin-bottom: 20px;
+      color: #b8b8c2;
+      font-size: 0.95rem;
       line-height: 1.8;
-      color: #ccc;
-      font-size: 0.97rem;
     }
 
     .section h2 {
-      color: #ff6a00;
-      font-size: 1.05rem;
+      color: var(--orange-lt);
+      font-size: 0.98rem;
+      font-weight: 700;
       margin-bottom: 10px;
+    }
+
+    .section a {
+      color: var(--orange-lt);
+      text-decoration: none;
+    }
+
+    .section a:hover {
+      text-decoration: underline;
     }
 
     .back {
@@ -63,21 +109,32 @@
 
     .back a {
       display: inline-block;
-      background: linear-gradient(135deg, #f08234, #f8551a);
+      background: linear-gradient(135deg, #f08234, #e8431a);
       color: #fff;
       text-decoration: none;
-      padding: 12px 30px;
+      padding: 12px 28px;
       border-radius: 30px;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .back a:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
     }
 
     footer {
       text-align: center;
-      padding: 30px 20px;
-      color: #444;
-      font-size: 0.85rem;
-      border-top: 1px solid #6e6d6d;
+      padding: 28px 20px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 36px 16px 32px; }
+      main { padding: 36px 16px 28px; }
     }
   </style>
 </head>
@@ -92,12 +149,12 @@
 
     <div class="section">
       <h2>📋 Sobre este documento</h2>
-      O aplicativo Promos da Sam Oficial respeita a privacidade dos seus usuários. Esta política descreve como tratamos as informações no contexto da integração com a API do Pinterest.
+      O canal Promos da Sam Oficial respeita a privacidade dos seus usuários. Esta política descreve como tratamos as informações no contexto da integração com a API do Pinterest.
     </div>
 
     <div class="section">
       <h2>📦 Dados coletados</h2>
-      Este aplicativo não coleta dados pessoais de usuários finais. Ele opera de forma automatizada para publicar conteúdo de curadoria de ofertas no Pinterest. Nenhuma informação pessoal é armazenada ou processada.
+      Este canal não coleta dados pessoais de usuários finais. Ele opera de forma automatizada para publicar conteúdo de curadoria de ofertas no Pinterest. Nenhuma informação pessoal é armazenada ou processada.
     </div>
 
     <div class="section">
@@ -113,11 +170,13 @@
     <div class="section">
       <h2>📬 Contato</h2>
       Para dúvidas sobre esta política, entre em contato pelo Telegram:<br>
-      <a href="https://t.me/PromosDaSamOficial" style="color:#ff6a00;">t.me/PromosDaSamOficial</a><br><br>
+      <a href="https://t.me/PromosDaSamOficial" target="_blank" rel="noopener noreferrer">
+        t.me/PromosDaSamOficial
+      </a>
     </div>
 
     <div class="back">
-      <a href="/promosdasam/">← Voltar ao início</a>
+      <a href="/">← Voltar ao início</a>
     </div>
 
   </main>
