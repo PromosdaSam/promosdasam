@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔥 Promos da Sam — Melhores Ofertas do Dia</title>
-  <meta name="description" content="Curadoria das melhores promoções em Amazon, Shopee, Mercado Livre e mais. Atualizações em tempo real no Telegram e WhatsApp.">
+  <title>🔥 Sam's Best Deals — Top Products of the Day</title>
+  <meta name="description" content="Smart curation of the best deals on Amazon and more. Updated in real time — click and save!">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; frame-ancestors 'none';">
-  <meta property="og:title" content="🔥 Promos da Sam — Melhores Ofertas do Dia">
-  <meta property="og:description" content="Curadoria das melhores promoções com atualizações em tempo real.">
+  <meta property="og:title" content="🔥 Sam's Best Deals — Top Products of the Day">
+  <meta property="og:description" content="Smart curation of the best deals — click a product and grab yours!">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://promosdasam.com.br/">
-  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://promosdasam.com.br/en/">
+  <meta property="og:locale" content="en_US">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -116,55 +116,16 @@
       margin-top: 10px;
       font-size: clamp(0.9rem, 2.5vw, 1.05rem);
       color: rgba(255,255,255,0.88);
-      max-width: 420px;
+      max-width: 440px;
       margin-inline: auto;
     }
 
-    /* CTA buttons */
-    .cta-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 13px 24px;
-      border-radius: var(--radius-pill);
-      font-size: 0.92rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform 0.18s, opacity 0.18s, box-shadow 0.18s;
-      white-space: nowrap;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px) scale(1.02);
-      opacity: 0.95;
-    }
-
-    .btn-telegram {
-      background: #fff;
-      color: #0088cc;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    }
-
-    .btn-whatsapp {
-      background: #25d366;
-      color: #fff;
-      box-shadow: 0 4px 16px rgba(37,211,102,0.35);
-    }
-
-    /* Social row */
+    /* Social row (no Telegram/WhatsApp CTAs for EN) */
     .social-row {
       display: flex;
       justify-content: center;
       gap: 8px;
-      margin-top: 20px;
+      margin-top: 28px;
       flex-wrap: wrap;
     }
 
@@ -176,9 +137,9 @@
       border: 1px solid rgba(255,255,255,0.25);
       color: #fff;
       text-decoration: none;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: var(--radius-pill);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 600;
       backdrop-filter: blur(4px);
       transition: background 0.15s;
@@ -324,7 +285,6 @@
       display: block;
     }
 
-    /* Shown when no video file is set */
     .card-media .placeholder-media {
       width: 100%;
       height: 100%;
@@ -348,7 +308,6 @@
       text-transform: uppercase;
     }
 
-    /* Play icon overlay */
     .card-media .play-icon {
       position: absolute;
       inset: 0;
@@ -360,9 +319,7 @@
       transition: opacity 0.2s;
     }
 
-    .product-card:hover .play-icon {
-      opacity: 1;
-    }
+    .product-card:hover .play-icon { opacity: 1; }
 
     .play-icon svg {
       width: 44px;
@@ -371,7 +328,6 @@
       filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
     }
 
-    /* Badge (discount or tag) */
     .card-badge {
       position: absolute;
       top: 10px;
@@ -385,7 +341,6 @@
       letter-spacing: 0.3px;
     }
 
-    /* Card body */
     .card-body {
       padding: 12px 13px 14px;
       display: flex;
@@ -491,160 +446,148 @@
 
   <!-- Language switch -->
   <div class="lang-bar">
-    <a href="/en/" aria-label="Switch to English">🌐 English</a>
+    <a href="/" aria-label="Mudar para Português">🌐 Português</a>
   </div>
 
   <!-- Hero -->
   <header class="hero" role="banner">
     <span class="hero-logo" aria-hidden="true">🔥</span>
-    <h1>Promos da Sam Oficial</h1>
-    <p>Curadoria das melhores ofertas do dia — clique no produto e garanta a sua!</p>
+    <h1>Sam's Best Deals</h1>
+    <p>Top products of the day, curated for you — click and save!</p>
 
-    <div class="cta-buttons">
-      <a href="https://t.me/PromosDaSamOficial" class="btn btn-telegram"
-         target="_blank" rel="noopener noreferrer">
-        ✈️ Entrar no Telegram
-      </a>
-      <a href="https://wa.me/SEUNUMERO" class="btn btn-whatsapp"
-         target="_blank" rel="noopener noreferrer">
-        💬 WhatsApp
-      </a>
-    </div>
-
-    <div class="social-row" aria-label="Redes sociais">
-      <a href="https://t.me/PromosDaSamOficial" class="social-pill"
-         target="_blank" rel="noopener noreferrer">✈️ Telegram</a>
-      <a href="https://wa.me/SEUNUMERO" class="social-pill"
-         target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+    <!-- No Telegram / WhatsApp for English version -->
+    <div class="social-row" aria-label="Follow us">
       <a href="https://pinterest.com/promosdasam" class="social-pill"
          target="_blank" rel="noopener noreferrer">📌 Pinterest</a>
       <a href="https://tiktok.com/@promosdasam" class="social-pill"
          target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
       <a href="https://instagram.com/promosdasam" class="social-pill"
          target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+      <a href="https://youtube.com/@promosdasam" class="social-pill"
+         target="_blank" rel="noopener noreferrer">▶️ YouTube</a>
     </div>
   </header>
 
   <!-- Controls -->
-  <section class="controls" aria-label="Filtros e busca">
+  <section class="controls" aria-label="Filters and search">
     <div class="search-wrap">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
       </svg>
-      <input type="search" id="search" placeholder="Buscar produto..." aria-label="Buscar produto" autocomplete="off">
+      <input type="search" id="search" placeholder="Search products..." aria-label="Search products" autocomplete="off">
     </div>
 
-    <div class="cats" id="cats" role="group" aria-label="Categorias"></div>
+    <div class="cats" id="cats" role="group" aria-label="Categories"></div>
   </section>
 
   <!-- Product grid -->
   <main>
-    <div class="grid" id="grid" aria-live="polite" aria-label="Produtos"></div>
+    <div class="grid" id="grid" aria-live="polite" aria-label="Products"></div>
     <div class="empty" id="empty">
       <span>🔍</span>
-      Nenhum produto encontrado para essa busca.
+      No products found for that search.
     </div>
   </main>
 
   <footer>
     <div class="footer-links">
-      <a href="/privacidade.html">Política de Privacidade</a>
-      <a href="https://t.me/PromosDaSamOficial" target="_blank" rel="noopener noreferrer">Telegram</a>
-      <a href="/en/">English</a>
+      <a href="/privacidade.html">Privacy Policy</a>
+      <a href="https://pinterest.com/promosdasam" target="_blank" rel="noopener noreferrer">Pinterest</a>
+      <a href="/">Português 🇧🇷</a>
     </div>
-    <p>© 2026 Promos da Sam Oficial · Links de afiliados nos ajudam a manter o projeto</p>
+    <p>© 2026 Sam's Best Deals · Affiliate links help keep this project running at no cost to you</p>
   </footer>
 
   <script>
     /* ─────────────────────────────────────────────────────
-       PRODUTOS — edite aqui para adicionar/remover produtos
-       Campos:
-         id         → identificador único (string)
-         name       → nome exibido no card
-         category   → deve corresponder a um id em CATEGORIES
-         video      → caminho para o arquivo .mp4 (ou null)
-         price      → preço atual (string)
-         originalPrice → preço antigo riscado (ou null)
-         discount   → badge no card, ex: "60% OFF" (ou null)
-         link       → link de afiliado do produto
+       PRODUCTS — edit here to add / remove products
+       Fields:
+         id           → unique identifier (string)
+         name         → product display name
+         category     → must match an id from CATEGORIES
+         video        → path to .mp4 file (or null)
+         price        → current price (string)
+         originalPrice → crossed-out old price (or null)
+         discount     → badge text, e.g. "60% OFF" (or null)
+         link         → affiliate link
     ───────────────────────────────────────────────────── */
     const PRODUCTS = [
       {
-        id: "p001",
-        name: "Fone Bluetooth TWS sem fio com cancelamento de ruído",
-        category: "eletronicos",
+        id: "e001",
+        name: "TWS Wireless Earbuds Noise Cancelling",
+        category: "electronics",
         video: null,
-        price: "R$ 79,90",
-        originalPrice: "R$ 199,90",
-        discount: "60% OFF",
+        price: "$14.99",
+        originalPrice: "$39.99",
+        discount: "63% OFF",
         link: "#"
       },
       {
-        id: "p002",
-        name: "Cafeteira Elétrica 12 xícaras inox",
-        category: "casa",
+        id: "e002",
+        name: "12-Cup Stainless Steel Coffee Maker",
+        category: "home",
         video: null,
-        price: "R$ 89,90",
-        originalPrice: "R$ 149,90",
-        discount: "40% OFF",
+        price: "$18.99",
+        originalPrice: "$34.99",
+        discount: "46% OFF",
         link: "#"
       },
       {
-        id: "p003",
-        name: "Camiseta Dry-Fit Premium masculina e feminina",
-        category: "moda",
+        id: "e003",
+        name: "Premium Dry-Fit Sports T-Shirt",
+        category: "fashion",
         video: null,
-        price: "R$ 29,90",
+        price: "$7.99",
         originalPrice: null,
         discount: null,
         link: "#"
       },
       {
-        id: "p004",
-        name: "Sérum Vitamina C 30ml antioxidante",
-        category: "beleza",
+        id: "e004",
+        name: "Vitamin C Brightening Serum 30ml",
+        category: "beauty",
         video: null,
-        price: "R$ 39,90",
-        originalPrice: "R$ 79,90",
+        price: "$9.99",
+        originalPrice: "$19.99",
         discount: "50% OFF",
         link: "#"
       },
       {
-        id: "p005",
-        name: "Tênis Running Feminino leve e confortável",
-        category: "esportes",
+        id: "e005",
+        name: "Women's Lightweight Running Shoes",
+        category: "sports",
         video: null,
-        price: "R$ 119,90",
-        originalPrice: "R$ 229,90",
-        discount: "48% OFF",
+        price: "$24.99",
+        originalPrice: "$49.99",
+        discount: "50% OFF",
         link: "#"
       },
       {
-        id: "p006",
-        name: "Kit Brinquedo Educativo STEM 3+ anos",
-        category: "infantil",
+        id: "e006",
+        name: "STEM Educational Toy Set 3+ Years",
+        category: "kids",
         video: null,
-        price: "R$ 49,90",
-        originalPrice: "R$ 89,90",
-        discount: "44% OFF",
+        price: "$11.99",
+        originalPrice: "$21.99",
+        discount: "45% OFF",
         link: "#"
       },
       {
-        id: "p007",
-        name: "Smartwatch Esportivo Monitor Cardíaco GPS",
-        category: "eletronicos",
+        id: "e007",
+        name: "Sports Smartwatch with Heart Rate & GPS",
+        category: "electronics",
         video: null,
-        price: "R$ 149,90",
-        originalPrice: "R$ 349,90",
+        price: "$29.99",
+        originalPrice: "$69.99",
         discount: "57% OFF",
         link: "#"
       },
       {
-        id: "p008",
-        name: "Luminária LED de Mesa com regulagem de intensidade",
-        category: "casa",
+        id: "e008",
+        name: "Adjustable Brightness LED Desk Lamp",
+        category: "home",
         video: null,
-        price: "R$ 59,90",
+        price: "$13.99",
         originalPrice: null,
         discount: null,
         link: "#"
@@ -652,23 +595,22 @@
     ];
 
     /* ─────────────────────────────────────────────────────
-       CATEGORIAS — edite aqui para mudar filtros
+       CATEGORIES — edit here to change filters
     ───────────────────────────────────────────────────── */
     const CATEGORIES = [
-      { id: "all",        label: "🔥 Todos" },
-      { id: "eletronicos", label: "⚡ Eletrônicos" },
-      { id: "casa",        label: "🏠 Casa" },
-      { id: "moda",        label: "👗 Moda" },
-      { id: "beleza",      label: "✨ Beleza" },
-      { id: "esportes",    label: "🏃 Esportes" },
-      { id: "infantil",    label: "🧸 Infantil" }
+      { id: "all",         label: "🔥 All" },
+      { id: "electronics", label: "⚡ Electronics" },
+      { id: "home",        label: "🏠 Home" },
+      { id: "fashion",     label: "👗 Fashion" },
+      { id: "beauty",      label: "✨ Beauty" },
+      { id: "sports",      label: "🏃 Sports" },
+      { id: "kids",        label: "🧸 Kids" }
     ];
 
     const CATEGORY_LABELS = Object.fromEntries(
       CATEGORIES.filter(c => c.id !== "all").map(c => [c.id, c.label])
     );
 
-    /* ── Render ─────────────────────────────────────────── */
     let activeCategory = "all";
     let searchQuery    = "";
 
@@ -699,17 +641,17 @@
         ? `<video src="${escAttr(p.video)}" autoplay muted loop playsinline preload="metadata"></video>`
         : `<div class="placeholder-media">
              <span>🔥</span>
-             <small>Clique para ver a oferta</small>
+             <small>Click to see the deal</small>
            </div>`;
 
-      const badge    = p.discount ? `<span class="card-badge">${esc(p.discount)}</span>` : "";
+      const badge     = p.discount ? `<span class="card-badge">${esc(p.discount)}</span>` : "";
       const origPrice = p.originalPrice ? `<span class="card-orig">${esc(p.originalPrice)}</span>` : "";
 
       return `
         <article class="product-card" data-category="${escAttr(p.category)}">
           <a href="${escAttr(p.link)}" class="card-link"
              target="_blank" rel="noopener noreferrer sponsored"
-             aria-label="${escAttr(p.name)} — ver oferta">
+             aria-label="${escAttr(p.name)} — see deal">
             <div class="card-media">
               ${mediaContent}
               <div class="play-icon" aria-hidden="true">
@@ -724,7 +666,7 @@
                 <span class="card-price">${esc(p.price)}</span>
                 ${origPrice}
               </div>
-              <span class="card-cta">Ver oferta →</span>
+              <span class="card-cta">See deal →</span>
             </div>
           </a>
         </article>`;
@@ -744,7 +686,6 @@
       empty.style.display = filtered.length === 0 ? "block" : "none";
     }
 
-    /* ── Sanitize helpers ───────────────────────────────── */
     function esc(str) {
       return String(str)
         .replace(/&/g,"&amp;").replace(/</g,"&lt;")
@@ -752,13 +693,11 @@
     }
     function escAttr(str) { return esc(str); }
 
-    /* ── Search ─────────────────────────────────────────── */
     document.getElementById("search").addEventListener("input", e => {
       searchQuery = e.target.value;
       render();
     });
 
-    /* ── Init ───────────────────────────────────────────── */
     buildCategories();
     render();
   </script>
