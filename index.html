@@ -93,17 +93,17 @@
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      padding: 13px 22px;
+      padding: 15px 26px;
       border-radius: var(--radius-pill);
-      font-size: 0.92rem;
+      font-size: 1rem;
       font-weight: 700;
       text-decoration: none;
       white-space: nowrap;
     }
 
     .btn-icon {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       flex-shrink: 0;
     }
 
@@ -131,22 +131,22 @@
     .social-pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       background: rgba(255,255,255,0.45);
       border: 2px solid rgba(0,0,0,0.14);
       color: #ffffff;
       text-decoration: none;
-      padding: 7px 15px;
+      padding: 10px 20px;
       border-radius: var(--radius-pill);
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       font-weight: 600;
     }
 
     .social-pill:hover { background: rgba(255,255,255,0.65); }
 
     .pill-icon {
-      width: 16px;
-      height: 16px;
+      width: 19px;
+      height: 19px;
       flex-shrink: 0;
     }
 
@@ -377,6 +377,47 @@
       flex-wrap: wrap;
     }
 
+    /* ── Novidades ────────────────────────────────────── */
+    .novidades-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 8px;
+    }
+
+    .novidades-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--orange-xlt);
+      color: var(--orange-dk);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 6px 16px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .novidades-strip {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .novidades-strip::-webkit-scrollbar { height: 4px; }
+    .novidades-strip::-webkit-scrollbar-track { background: var(--border); border-radius: 4px; }
+    .novidades-strip::-webkit-scrollbar-thumb { background: var(--orange-lt); border-radius: 4px; }
+
+    .novidades-strip .product-card {
+      min-width: 160px;
+      max-width: 190px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+    }
+
     /* ── Responsive ───────────────────────────────────── */
     @media (max-width: 600px) {
       .hero { padding: 40px 16px 64px; }
@@ -458,6 +499,12 @@
     </div>
   </header>
 
+  <!-- Novidades da semana -->
+  <section class="novidades-section" id="novidades-section" aria-label="Novidades da semana" style="display:none">
+    <span class="novidades-label">🆕 Novidades da semana</span>
+    <div class="novidades-strip" id="novidades-strip"></div>
+  </section>
+
   <!-- Busca e filtros -->
   <section class="controls" aria-label="Filtros e busca">
     <div class="search-wrap">
@@ -496,14 +543,14 @@
          link     → link de afiliado
     ───────────────────────────────────────────────────── */
     const PRODUCTS = [
-      { id: "p001", name: "Fone Bluetooth TWS sem fio com cancelamento de ruído", category: "eletronicos", video: null, link: "#" },
-      { id: "p002", name: "Cafeteira Elétrica 12 xícaras inox",                  category: "casa",         video: null, link: "#" },
-      { id: "p003", name: "Camiseta Dry-Fit Premium masculina e feminina",        category: "moda",         video: null, link: "#" },
-      { id: "p004", name: "Sérum Vitamina C 30ml antioxidante",                   category: "beleza",       video: null, link: "#" },
-      { id: "p005", name: "Tênis Running Feminino leve e confortável",            category: "esportes",     video: null, link: "#" },
-      { id: "p006", name: "Kit Brinquedo Educativo STEM 3+ anos",                 category: "infantil",     video: null, link: "#" },
-      { id: "p007", name: "Smartwatch Esportivo Monitor Cardíaco GPS",            category: "eletronicos",  video: null, link: "#" },
-      { id: "p008", name: "Luminária LED de Mesa com regulagem de intensidade",   category: "casa",         video: null, link: "#" },
+      { id: "p001", name: "Fone Bluetooth TWS sem fio com cancelamento de ruído", category: "eletronicos", video: null, link: "#", date: "2026-06-16" },
+      { id: "p002", name: "Cafeteira Elétrica 12 xícaras inox",                  category: "casa",         video: null, link: "#", date: "2026-06-15" },
+      { id: "p003", name: "Camiseta Dry-Fit Premium masculina e feminina",        category: "moda",         video: null, link: "#", date: "2026-06-14" },
+      { id: "p004", name: "Sérum Vitamina C 30ml antioxidante",                   category: "beleza",       video: null, link: "#", date: "2026-06-13" },
+      { id: "p005", name: "Tênis Running Feminino leve e confortável",            category: "esportes",     video: null, link: "#", date: "2026-06-12" },
+      { id: "p006", name: "Kit Brinquedo Educativo STEM 3+ anos",                 category: "infantil",     video: null, link: "#", date: "2026-06-05" },
+      { id: "p007", name: "Smartwatch Esportivo Monitor Cardíaco GPS",            category: "eletronicos",  video: null, link: "#", date: "2026-06-16" },
+      { id: "p008", name: "Luminária LED de Mesa com regulagem de intensidade",   category: "casa",         video: null, link: "#", date: "2026-06-04" },
     ];
 
     const CATEGORIES = [
@@ -587,12 +634,23 @@
       empty.style.display = filtered.length === 0 ? "block" : "none";
     }
 
+    function renderNovidades() {
+      const cutoff = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+      const recentes = PRODUCTS.filter(p => p.date && new Date(p.date) >= cutoff);
+      const section  = document.getElementById("novidades-section");
+      const strip    = document.getElementById("novidades-strip");
+      if (recentes.length === 0) return;
+      strip.innerHTML = recentes.map(cardHTML).join("");
+      section.style.display = "block";
+    }
+
     document.getElementById("search").addEventListener("input", e => {
       searchQuery = e.target.value;
       render();
     });
 
     buildCategories();
+    renderNovidades();
     render();
   </script>
 </body>
