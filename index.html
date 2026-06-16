@@ -46,29 +46,36 @@
 
     /* ── Hero ─────────────────────────────────────────── */
     .hero {
-      background: #ffac49;
-      padding: 52px 20px 56px;
+      background: #ff7417;
+      padding: 52px 20px 80px;
       text-align: center;
+      border-bottom-left-radius: 50% 48px;
+      border-bottom-right-radius: 50% 48px;
     }
 
     .hero-logo {
-      font-size: clamp(4.5rem, 13vw, 7.5rem);
-      line-height: 1;
+      width: clamp(90px, 20vw, 130px);
+      height: clamp(90px, 20vw, 130px);
+      border-radius: 50%;
+      object-fit: cover;
       margin-bottom: 14px;
       display: block;
+      margin-inline: auto;
+      border: 4px solid rgba(255,255,255,0.55);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
     }
 
     .hero h1 {
       font-size: clamp(1.6rem, 5vw, 2.4rem);
       font-weight: 800;
-      color: #1a0800;
+      color: #ffffff;
       letter-spacing: -0.5px;
     }
 
     .hero p {
       margin-top: 10px;
       font-size: clamp(0.88rem, 2.4vw, 1rem);
-      color: #1a0800;
+      color: #ffffff;
       max-width: 400px;
       margin-inline: auto;
     }
@@ -352,7 +359,7 @@
 
     /* ── Footer ───────────────────────────────────────── */
     footer {
-      background: #c8360a;
+      background: #ff7417;
       color: rgba(255,255,255,0.72);
       text-align: center;
       padding: 26px 20px;
@@ -381,7 +388,7 @@
 <body>
 
   <header class="hero" role="banner">
-    <span class="hero-logo" aria-hidden="true">🔥</span>
+    <img src="logo.png" class="hero-logo" alt="Logo Promos da Sam">
     <h1>Promos da Sam Oficial</h1>
     <p>Curadoria das melhores ofertas do dia — clique e garanta a sua!</p>
 
