@@ -7,8 +7,8 @@
   <meta name="description" content="Curadoria das melhores promoções em Amazon, Shopee, Mercado Livre e mais. Atualizações em tempo real no Telegram e WhatsApp.">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; frame-ancestors 'none';">
-  <meta property="og:title" content="🔥 Promos da Sam — Melhores Ofertas do Dia">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;">
+  <meta property="og:title" content="🔥 Promos da Sam">
   <meta property="og:description" content="Curadoria das melhores promoções com atualizações em tempo real.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://promosdasam.com.br/">
@@ -51,6 +51,7 @@
       text-align: center;
       border-bottom-left-radius: 50% 48px;
       border-bottom-right-radius: 50% 48px;
+      position: relative;
     }
 
     .hero-logo {
@@ -93,17 +94,17 @@
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      padding: 15px 26px;
+      padding: 13px 22px;
       border-radius: var(--radius-pill);
-      font-size: 1rem;
+      font-size: 0.92rem;
       font-weight: 700;
       text-decoration: none;
       white-space: nowrap;
     }
 
     .btn-icon {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       flex-shrink: 0;
     }
 
@@ -131,22 +132,22 @@
     .social-pill {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       background: rgba(255,255,255,0.45);
       border: 2px solid rgba(0,0,0,0.14);
-      color: #ffffff;
+      color: #1a0800;
       text-decoration: none;
-      padding: 10px 20px;
+      padding: 7px 15px;
       border-radius: var(--radius-pill);
-      font-size: 0.95rem;
+      font-size: 0.82rem;
       font-weight: 600;
     }
 
     .social-pill:hover { background: rgba(255,255,255,0.65); }
 
     .pill-icon {
-      width: 19px;
-      height: 19px;
+      width: 16px;
+      height: 16px;
       flex-shrink: 0;
     }
 
@@ -377,26 +378,73 @@
       flex-wrap: wrap;
     }
 
-    /* ── Novidades ────────────────────────────────────── */
+    /* ── Dark mode ────────────────────────────────────── */
+    [data-theme="dark"] {
+      --bg:         #18181b;
+      --card:       #27272a;
+      --border:     #3d2e20;
+      --text:       #f0e8e0;
+      --text-2:     #c8a070;
+      --text-3:     #8a6050;
+      --shadow:     0 2px 16px rgba(0,0,0,0.35);
+      --shadow-hov: 0 8px 32px rgba(0,0,0,0.55);
+    }
+
+    [data-theme="dark"] .card-cta {
+      background: rgba(255,116,23,0.15);
+      color: var(--orange-lt);
+    }
+
+    body { transition: background 0.25s, color 0.25s; }
+
+    .theme-toggle {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: rgba(255,255,255,0.18);
+      border: 2px solid rgba(255,255,255,0.38);
+      color: #fff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .theme-toggle:hover { background: rgba(255,255,255,0.32); }
+
+    /* ── Novidades ─────────────────────────────────────── */
     .novidades-section {
       max-width: 1100px;
       margin: 0 auto;
       padding: 32px 20px 8px;
     }
 
-    .novidades-label {
-      display: inline-flex;
+    .novidades-title {
+      display: flex;
       align-items: center;
-      gap: 7px;
-      background: var(--orange-xlt);
+      gap: 12px;
+      font-size: 0.78rem;
+      font-weight: 800;
       color: var(--orange-dk);
-      border: 2px solid var(--border);
-      border-radius: var(--radius-pill);
-      padding: 6px 16px;
-      font-size: 0.84rem;
-      font-weight: 700;
       margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
+
+    .novidades-title::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: var(--border);
+      border-radius: 2px;
+    }
+
+    .novidades-title, .novidades-label { /* alias for EN site */ }
 
     .novidades-strip {
       display: flex;
@@ -429,8 +477,9 @@
 <body>
 
   <header class="hero" role="banner">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Alternar modo claro/escuro">🌙</button>
     <img src="logo.png" class="hero-logo" alt="Logo Promos da Sam">
-    <h1>Promos da Sam Oficial</h1>
+    <h1>Promos da Sam</h1>
     <p>Curadoria das melhores ofertas do dia, todos os dias!</p>
 
     <!-- Telegram + WhatsApp: apenas aqui como botões grandes -->
@@ -501,7 +550,7 @@
 
   <!-- Novidades da semana -->
   <section class="novidades-section" id="novidades-section" aria-label="Novidades da semana" style="display:none">
-    <span class="novidades-label">🆕 Novidades da semana</span>
+    <h2 class="novidades-title">Novidades da semana</h2>
     <div class="novidades-strip" id="novidades-strip"></div>
   </section>
 
@@ -528,6 +577,7 @@
   <footer>
     <div class="footer-links">
       <a href="/privacidade.html">Política de Privacidade</a>
+      <a href="https://t.me/PromosDaSamOficial" target="_blank" rel="noopener noreferrer">Telegram</a>
     </div>
     <p>© 2026 Promos da Sam Oficial · Links de afiliados nos ajudam a manter o projeto</p>
   </footer>
@@ -543,13 +593,13 @@
          link     → link de afiliado
     ───────────────────────────────────────────────────── */
     const PRODUCTS = [
-      { id: "p001", name: "Fone Bluetooth TWS sem fio com cancelamento de ruído", category: "eletronicos", video: null, link: "#", date: "2026-06-16" },
-      { id: "p002", name: "Cafeteira Elétrica 12 xícaras inox",                  category: "casa",         video: null, link: "#", date: "2026-06-15" },
-      { id: "p003", name: "Camiseta Dry-Fit Premium masculina e feminina",        category: "moda",         video: null, link: "#", date: "2026-06-14" },
-      { id: "p004", name: "Sérum Vitamina C 30ml antioxidante",                   category: "beleza",       video: null, link: "#", date: "2026-06-13" },
-      { id: "p005", name: "Tênis Running Feminino leve e confortável",            category: "esportes",     video: null, link: "#", date: "2026-06-12" },
+      { id: "p001", name: "Fone Bluetooth TWS sem fio com cancelamento de ruído", category: "eletronicos", video: null, link: "#", date: "2026-06-17" },
+      { id: "p002", name: "Cafeteira Elétrica 12 xícaras inox",                  category: "casa",         video: null, link: "#", date: "2026-06-16" },
+      { id: "p003", name: "Camiseta Dry-Fit Premium masculina e feminina",        category: "moda",         video: null, link: "#", date: "2026-06-15" },
+      { id: "p004", name: "Sérum Vitamina C 30ml antioxidante",                   category: "beleza",       video: null, link: "#", date: "2026-06-14" },
+      { id: "p005", name: "Tênis Running Feminino leve e confortável",            category: "esportes",     video: null, link: "#", date: "2026-06-13" },
       { id: "p006", name: "Kit Brinquedo Educativo STEM 3+ anos",                 category: "infantil",     video: null, link: "#", date: "2026-06-05" },
-      { id: "p007", name: "Smartwatch Esportivo Monitor Cardíaco GPS",            category: "eletronicos",  video: null, link: "#", date: "2026-06-16" },
+      { id: "p007", name: "Smartwatch Esportivo Monitor Cardíaco GPS",            category: "eletronicos",  video: null, link: "#", date: "2026-06-17" },
       { id: "p008", name: "Luminária LED de Mesa com regulagem de intensidade",   category: "casa",         video: null, link: "#", date: "2026-06-04" },
     ];
 
@@ -635,7 +685,7 @@
     }
 
     function renderNovidades() {
-      const cutoff = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+      const cutoff  = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
       const recentes = PRODUCTS.filter(p => p.date && new Date(p.date) >= cutoff);
       const section  = document.getElementById("novidades-section");
       const strip    = document.getElementById("novidades-strip");
@@ -643,6 +693,20 @@
       strip.innerHTML = recentes.map(cardHTML).join("");
       section.style.display = "block";
     }
+
+    (function initTheme() {
+      const root  = document.documentElement;
+      const btn   = document.getElementById("theme-toggle");
+      const saved = localStorage.getItem("theme") || "light";
+      root.setAttribute("data-theme", saved);
+      btn.textContent = saved === "dark" ? "☀️" : "🌙";
+      btn.addEventListener("click", () => {
+        const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+        btn.textContent = next === "dark" ? "☀️" : "🌙";
+      });
+    })();
 
     document.getElementById("search").addEventListener("input", e => {
       searchQuery = e.target.value;
