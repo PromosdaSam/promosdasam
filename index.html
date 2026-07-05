@@ -51,6 +51,7 @@
       text-align: center;
       border-bottom-left-radius: 50% 48px;
       border-bottom-right-radius: 50% 48px;
+      border-bottom: 5px solid var(--text-2);
       position: relative;
     }
 
@@ -62,7 +63,7 @@
       margin-bottom: 14px;
       display: block;
       margin-inline: auto;
-      border: 4px solid rgba(255,255,255,0.55);
+      border: 4px solid var(--text-2);
       box-shadow: 0 4px 20px rgba(0,0,0,0.18);
     }
 
@@ -134,7 +135,7 @@
       align-items: center;
       gap: 6px;
       background: var(--card);
-      border: 3px solid var(--border);
+      border: 3px solid var(--text-2);
       color: var(--text-2);
       text-decoration: none;
       padding: 7px 15px;
@@ -328,7 +329,7 @@
     .card-cat {
       font-size: 0.68rem;
       font-weight: 700;
-      color: var(--orange);
+      color: var(--text-2);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -340,8 +341,10 @@
       line-height: 1.35;
       display: -webkit-box;
       -webkit-line-clamp: 2;
+      line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      min-height: 2.7em;
     }
 
     .card-cta {
@@ -360,7 +363,7 @@
 
     /* ── Footer ───────────────────────────────────────── */
     footer {
-      background: #ff7417;
+      background: #e16816b8;
       color: rgba(255,255,255,0.72);
       text-align: center;
       padding: 26px 20px;
@@ -381,7 +384,7 @@
     /* ── Dark mode ────────────────────────────────────── */
     [data-theme="dark"] {
       --bg:         #2d2d2f;
-      --card:       #27272a;
+      --card:       #3a3a3d;
       --border:     #6b4a30;
       --text:       #f0e8e0;
       --text-2:     #c8a070;
@@ -390,7 +393,8 @@
       --shadow-hov: 0 8px 32px rgba(0,0,0,0.55);
     }
 
-    [data-theme="dark"] .hero { background: #f18e4bb8; }
+    [data-theme="dark"] .hero,
+    [data-theme="dark"] footer { background: #f18e4bb8; }
 
     [data-theme="dark"] .card-cta {
       background: rgba(255,116,23,0.15);
@@ -404,7 +408,7 @@
       top: 16px;
       right: 20px;
       background: rgba(255,255,255,0.18);
-      border: 2px solid rgba(255,255,255,0.38);
+      border: 2px solid var(--text-2);
       color: #fff;
       border-radius: 50%;
       width: 40px;
@@ -430,9 +434,9 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 0.78rem;
+      font-size: 1.1rem;
       font-weight: 800;
-      color: var(--orange-dk);
+      color: var(--text-2);
       margin-bottom: 16px;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -670,8 +674,10 @@
     }
 
     function renderNovidades() {
-      const cutoff  = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-      const recentes = PRODUCTS.filter(p => p.date && new Date(p.date) >= cutoff);
+      const recentes = [...PRODUCTS]
+        .filter(p => p.date)
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 5);
       const section  = document.getElementById("novidades-section");
       const strip    = document.getElementById("novidades-strip");
       if (recentes.length === 0) return;
