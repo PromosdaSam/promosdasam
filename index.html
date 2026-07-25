@@ -644,7 +644,7 @@
     function cardHTML(p) {
       const catLabel = CAT_LABEL[p.category] || p.category;
       const media = p.video
-        ? `<video src="${esc(p.video)}" autoplay muted loop playsinline preload="metadata"></video>`
+        ? `<video src="${esc(p.video)}"${p.poster ? ` poster="${esc(p.poster)}"` : ""} autoplay muted loop playsinline preload="metadata"></video>`
         : `<div class="placeholder-media"><span>🔥</span><small>Clique para ver</small></div>`;
 
       return `
@@ -727,3 +727,4 @@
   </script>
 </body>
 </html>
+
