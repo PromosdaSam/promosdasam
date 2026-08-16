@@ -729,18 +729,35 @@
     function cardHTML(p) {
       const catLabel = CAT_LABEL[p.category] || p.category;
       const hasVideo = !!p.video && !!p.poster;
+      // 2026-08-15, pedido da usuária: clique na capa/vídeo do card leva pro
+      // Reel real no Instagram (ig_permalink, gerado por postar_site.py no
+      // P4) em vez do popup local — só cai no popup antigo (openVideoModal)
+      // pra produtos publicados antes de 01/08/2026, que não têm
+      // ig_permalink salvo no products.json.
+      const hasIgLink = !!p.ig_permalink;
       const media = p.poster
         ? `<img src="${esc(p.poster)}" loading="lazy" alt="${esc(p.name)}" class="media-img">`
         : `<div class="placeholder-media"><span>🔥</span><small>Clique para ver</small></div>`;
 
+      let mediaOnclick = '';
+      let tooltipText = '';
+      if (hasIgLink) {
+        mediaOnclick = ` onclick="event.preventDefault(); event.stopPropagation(); window.open(${esc(JSON.stringify(p.ig_permalink))}, '_blank', 'noopener');"`;
+        tooltipText = 'Toque para ver no Instagram';
+      } else if (hasVideo) {
+        mediaOnclick = ` onclick="openVideoModal(event, ${esc(JSON.stringify(p.video))}, ${esc(JSON.stringify(p.poster))})"`;
+        tooltipText = 'Toque para ver o vídeo';
+      }
+      const clickable = hasIgLink || hasVideo;
+
       const mediaBlock = `
-        <div class="card-media${hasVideo ? ' has-video' : ''}"${hasVideo ? ` onclick="openVideoModal(event, ${esc(JSON.stringify(p.video))}, ${esc(JSON.stringify(p.poster))})"` : ''}>
+        <div class="card-media${clickable ? ' has-video' : ''}"${mediaOnclick}>
           ${media}
-          ${hasVideo ? `
+          ${clickable ? `
           <div class="play-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
           </div>
-          <div class="video-tooltip" aria-hidden="true"><span>Toque para ver o vídeo</span></div>` : ''}
+          <div class="video-tooltip" aria-hidden="true"><span>${tooltipText}</span></div>` : ''}
         </div>`;
 
       return `
