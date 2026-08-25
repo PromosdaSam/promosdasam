@@ -7,7 +7,7 @@
   <meta name="description" content="Curadoria das melhores promoções em Amazon, Shopee, Mercado Livre e mais. Atualizações em tempo real no Telegram e WhatsApp.">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://s.pinimg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://videos.promosdasam.com.br https://ct.pinterest.com; media-src 'self' blob: https://videos.promosdasam.com.br; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://ct.pinterest.com https://s.pinimg.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://s.pinimg.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://videos.promosdasam.com.br https://ct.pinterest.com https://www.facebook.com; media-src 'self' blob: https://videos.promosdasam.com.br; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://ct.pinterest.com https://s.pinimg.com https://www.facebook.com https://connect.facebook.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;">
   <meta property="og:title" content="🔥 Promos da Sam">
   <meta property="og:description" content="Curadoria das melhores promoções com atualizações em tempo real.">
   <meta property="og:type" content="website">
@@ -34,6 +34,23 @@
     src="https://ct.pinterest.com/v3/?event=init&tid=2613340589442&noscript=1" />
   </noscript>
   <!-- end Pinterest Tag -->
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1080964004464317');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1080964004464317&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- end Meta Pixel -->
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -554,11 +571,15 @@
     }
 
     function trackProductClick(productId) {
-      if (typeof pintrk !== 'function') return;
-      pintrk('track', 'lead', {
-        event_id: 'click_' + productId + '_' + Date.now(),
-        lead_type: 'Product Click'
-      });
+      if (typeof pintrk === 'function') {
+        pintrk('track', 'lead', {
+          event_id: 'click_' + productId + '_' + Date.now(),
+          lead_type: 'Product Click'
+        });
+      }
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', { content_ids: [productId], content_type: 'product' });
+      }
     }
 
     function cardHTML(p) {
