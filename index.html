@@ -208,6 +208,21 @@
     .pill-btn.filled { background: var(--ink); color: var(--bg); }
     .pill-btn.filled:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
 
+    /* Tremidinha: chama atenção a cada poucos segundos */
+    .pill-btn.filled { animation: cta-shake 3.6s ease-in-out infinite; }
+    .pill-btn.filled:hover { animation-play-state: paused; }
+    @keyframes cta-shake {
+      0%, 88%, 100% { transform: rotate(0); }
+      90%  { transform: rotate(-4deg); }
+      92%  { transform: rotate(4deg); }
+      94%  { transform: rotate(-3deg); }
+      96%  { transform: rotate(3deg); }
+      98%  { transform: rotate(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pill-btn.filled { animation: none; }
+    }
+
     /* ── Controls ─────────────────────────────────────── */
     .controls {
       max-width: 1360px;
