@@ -412,6 +412,24 @@
     }
     .product-card:hover .card-cta { background: var(--ink); color: var(--bg); }
 
+    /* ── Dropdown de ofertas (2+ links pro mesmo produto) ─── */
+    button.card-cta.offers-toggle {
+      width: 100%; border: none; font: inherit; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 4px;
+    }
+    .offers-caret { display: inline-block; transition: transform 0.2s; font-size: 0.7em; }
+    .offers-toggle[aria-expanded="true"] .offers-caret { transform: rotate(180deg); }
+
+    .offers-dropdown { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+    .offers-dropdown[hidden] { display: none; }
+    .offers-dropdown a {
+      display: block; text-align: center; padding: 7px 8px;
+      border-radius: 8px; border: 1.5px solid var(--border-soft);
+      color: var(--ink); text-decoration: none;
+      font-size: 0.78rem; font-weight: 600;
+    }
+    .offers-dropdown a:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
     /* ── Footer ───────────────────────────────────────── */
     footer { background: var(--ink); color: rgba(243,241,237,0.72); text-align: center; padding: 26px 20px; font-size: 0.82rem; }
     footer a { color: rgba(243,241,237,0.92); text-decoration: none; }
@@ -596,6 +614,22 @@
       }
     }
 
+    function toggleOffers(btn, id) {
+      const dropdown = document.getElementById(id);
+      if (!dropdown) return;
+      const abrir = dropdown.hidden;
+      document.querySelectorAll('.offers-dropdown').forEach(d => { d.hidden = true; });
+      document.querySelectorAll('.offers-toggle').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      if (abrir) {
+        dropdown.hidden = false;
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.offers-dropdown').forEach(d => { d.hidden = true; });
+      document.querySelectorAll('.offers-toggle').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    });
+
     function cardHTML(p) {
       const catLabel = CAT_LABEL[p.category] || p.category;
       const hasVideo = !!p.video && !!p.poster;
@@ -630,16 +664,52 @@
           <div class="video-tooltip" aria-hidden="true"><span>${tooltipText}</span></div>` : ''}
         </div>`;
 
+      const bodyTop = `
+              <span class="card-cat">${esc(catLabel)}</span>
+              <h2 class="card-name">${esc(p.name)}</h2>`;
+
+      // 2026-08-27, pedido da usuária: mesmo produto (nome idêntico)
+      // capturado de novo com outro link vira uma 2ª OFERTA na mesma
+      // entrada (ver atualizar_site() no P4), não um card duplicado — com
+      // 2+ ofertas o card não navega mais direto (não dá pra saber sozinho
+      // qual link ainda vale), abre um dropdown com o link de cada uma.
+      const ofertas = Array.isArray(p.offers) && p.offers.length > 0
+        ? p.offers
+        : [{ link: p.link, date: p.date }];
+
+      if (ofertas.length > 1) {
+        const dropdownId = `offers-${esc(p.id)}`;
+        const itens = ofertas.map((o, i) => `
+              <a href="${esc(o.link)}" target="_blank" rel="noopener noreferrer sponsored"
+                 onclick="event.stopPropagation(); trackProductClick('${esc(p.id)}');">Oferta ${i + 1}${o.date ? ` — ${esc(o.date)}` : ''}</a>`).join('');
+
+        return `
+        <article class="product-card" data-category="${esc(p.category)}">
+          <div class="card-link">
+            ${mediaBlock}
+            <div class="card-body">
+              ${bodyTop}
+              <button type="button" class="card-cta offers-toggle" aria-expanded="false"
+                      aria-controls="${dropdownId}"
+                      onclick="event.stopPropagation(); toggleOffers(this, '${dropdownId}');">
+                Clicar em ofertas <span class="offers-caret">▾</span>
+              </button>
+              <div class="offers-dropdown" id="${dropdownId}" hidden>${itens}
+              </div>
+            </div>
+          </div>
+        </article>`;
+      }
+
       return `
         <article class="product-card" data-category="${esc(p.category)}">
-          <a href="${esc(p.link)}" class="card-link"
+          <a href="${esc(ofertas[0].link)}" class="card-link"
              target="_blank" rel="noopener noreferrer sponsored"
              aria-label="${esc(p.name)} — ver oferta"
              onclick="trackProductClick('${esc(p.id)}')">
             ${mediaBlock}
             <div class="card-body">
-              <span class="card-cat">${esc(catLabel)}</span>
-              <h2 class="card-name">${esc(p.name)}</h2>
+              ${bodyTop}
               <span class="card-cta">Ver oferta →</span>
             </div>
           </a>
