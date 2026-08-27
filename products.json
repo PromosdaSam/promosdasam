@@ -1,5 +1,42 @@
 [
   {
+    "id": "shopeegrupo_17",
+    "name": "5 achadinhos neste vídeo",
+    "category": "outros",
+    "video": "",
+    "poster": "https://videos.promosdasam.com.br/pos_shopee/grupo_17_poster.jpg",
+    "link": "#",
+    "date": "2026-08-27",
+    "ig_permalink": "https://www.instagram.com/reel/DchPZchCKGj/",
+    "products": [
+      {
+        "msg_id": "9602",
+        "name": "Sérum Antioxidante Clareador Vitamina C Gold Creamy Skincare 30ml",
+        "link": "https://s.shopee.com.br/4AzETHa2Rv"
+      },
+      {
+        "msg_id": "9310",
+        "name": "CONJUNTO INFANTIL MENINA  JUVENIL SHORT SAIA E REGATA",
+        "link": "https://s.shopee.com.br/3LQJehJd9a"
+      },
+      {
+        "msg_id": "9431",
+        "name": "Fone de Ouvido Earcuff Condução Óssea Bluetooth Sem Fio TWS Auricular Conforto e Som Inovador",
+        "link": "https://s.shopee.com.br/9KhKihiNt5"
+      },
+      {
+        "msg_id": "9314",
+        "name": "Abajur Luminaria Decorativo Quarto Sala Criado Mudo Cristal Com Led 42cm",
+        "link": "https://s.shopee.com.br/20uw0fhzJR"
+      },
+      {
+        "msg_id": "9550",
+        "name": "Porta-Escovas de Dente Criativo Infantil com Espremedor de Pasta de Parede Antipoeira",
+        "link": "https://s.shopee.com.br/8KonWm1oYR"
+      }
+    ]
+  },
+  {
     "id": "shopee_9550",
     "name": "Porta-Escovas de Dente Criativo Infantil com Espremedor de Pasta de Parede Antipoeira",
     "category": "cozinha",
