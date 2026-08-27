@@ -463,7 +463,7 @@
     .novidades-title::after { content: ''; flex: 1; height: 2px; background: var(--border-soft); border-radius: 2px; }
 
     .novidades-strip {
-      display: flex; justify-content: flex-start; gap: 14px; overflow-x: auto;
+      display: flex; justify-content: center; gap: 14px; overflow-x: auto;
       padding-bottom: 12px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
     }
     .novidades-strip::-webkit-scrollbar { height: 4px; }
@@ -731,17 +731,11 @@
     }
 
     function renderNovidades() {
-      // 2026-08-27, achado real: cap de 5 cortava produtos do MESMO dia
-      // (ex: Reel agrupado gera 5 cards de uma vez com a mesma `date`,
-      // ordenação por data empata e o corte em 5 deixava 2 de fora da
-      // faixa "novidades da semana" mesmo tendo acabado de sair). Cap
-      // maior (12) cobre um dia cheio (agrupado + Reel individual) sem
-      // esconder nada — a faixa já é scroll horizontal, não lista tudo
-      // fixo na tela.
+      // 2026-08-27, pedido da usuária: os 6 últimos vídeos postados.
       const recentes = [...PRODUCTS]
         .filter(p => p.date)
         .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .slice(0, 12);
+        .slice(0, 6);
       const section  = document.getElementById("novidades-section");
       const strip    = document.getElementById("novidades-strip");
       if (recentes.length === 0) return;
