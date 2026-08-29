@@ -1,5 +1,42 @@
 [
   {
+    "id": "carrosselD_1",
+    "name": "5 achados de moda neste vídeo",
+    "category": "moda",
+    "video": "",
+    "poster": "https://videos.promosdasam.com.br/pos_shopee/carrosselD_1_poster.jpg",
+    "link": "#",
+    "date": "2026-08-28",
+    "ig_permalink": "https://www.instagram.com/p/DcmsUG4lXa3/",
+    "products": [
+      {
+        "id": 4,
+        "name": "SHORT SAIA",
+        "link": "https://amzn.to/4quYsyR"
+      },
+      {
+        "id": 5,
+        "name": "BERMUDA CINTURA ALTA",
+        "link": "https://amzn.to/4xepT2F"
+      },
+      {
+        "id": 7,
+        "name": "EU JÁ VOU",
+        "link": "https://amzn.to/4qPlS2l"
+      },
+      {
+        "id": 8,
+        "name": "ESSA BERMUDA É",
+        "link": "https://amzn.to/3UcBSiu"
+      },
+      {
+        "id": 11,
+        "name": "CANSADA DISSO?",
+        "link": "https://amzn.to/4goYeWQ"
+      }
+    ]
+  },
+  {
     "id": "shopeegrupo_18",
     "name": "5 achadinhos neste vídeo",
     "category": "outros",
