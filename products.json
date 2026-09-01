@@ -1,5 +1,32 @@
 [
   {
+    "id": "carrosselD_2",
+    "name": "3 achados de moda neste vídeo",
+    "category": "moda",
+    "video": "",
+    "poster": "https://videos.promosdasam.com.br/pos_shopee/carrosselD_2_poster.jpg",
+    "link": "#",
+    "date": "2026-09-01",
+    "ig_permalink": "https://www.instagram.com/p/DcwFzxPiYYS/",
+    "products": [
+      {
+        "id": 16,
+        "name": "Regata + short fitness",
+        "link": "https://amzn.to/4qM6OSO"
+      },
+      {
+        "id": 26,
+        "name": "Short saia soltinho",
+        "link": "https://amzn.to/4qY3eFl"
+      },
+      {
+        "id": 27,
+        "name": "Calça de alfaiataria não amassa",
+        "link": "https://amzn.to/3Uqgp5S"
+      }
+    ]
+  },
+  {
     "id": "shopee_9465",
     "name": "Sandália Tamanco Feminino Salto Alto Plataforma Meia Pata Estilosa e Moderna",
     "category": "calcados",
