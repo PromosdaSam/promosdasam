@@ -390,7 +390,7 @@
     .card-link { display: flex; flex-direction: column; flex: 1; text-decoration: none; color: inherit; }
 
     .card-media {
-      aspect-ratio: 9/16;
+      aspect-ratio: 1/1;
       background: var(--bg-2);
       overflow: hidden;
       position: relative;
@@ -590,14 +590,14 @@
     <div class="link-stack" id="mode-links">
 
       <a href="#" class="link-btn is-pending" data-pending="true" hidden onclick="return trackClick('cupons_shopee', this)">
-        <span class="thumb" style="background:#EE4D2D"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="#fff" d="M6 8h12l-1.2 12.2a1.5 1.5 0 0 1-1.5 1.3H8.7a1.5 1.5 0 0 1-1.5-1.3L6 8z"/><path fill="none" stroke="#fff" stroke-width="1.6" d="M9 8a3 3 0 0 1 6 0"/></svg></span>
+        <span class="thumb" style="background:#EE4D2D"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
         <span class="label">Cupons Shopee</span>
         <span class="soon">em breve</span>
       </a>
 
-      <a href="#" class="link-btn" onclick="trackClick('cupons_shein', this); openCouponModal(event, 'shein')">
-        <span class="thumb" style="background:#000000"><span class="thumb-mark" style="font-size:0.48rem">SHEIN</span></span>
-        <span class="label">Cupons Shein</span>
+      <a href="https://collshp.com/promosdasamoficial?share_channel_code=1&view=storefront" class="link-btn" target="_blank" rel="noopener noreferrer" onclick="return trackClick('vitrine_shopee', this)">
+        <span class="thumb" style="background:#EE4D2D"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <span class="label">Vitrine Shopee</span>
       </a>
 
       <a href="#" class="link-btn" onclick="trackClick('cupons_temu', this); openCouponModal(event, 'temu')">
@@ -610,9 +610,9 @@
         <span class="label">Vitrine Amazon</span>
       </a>
 
-      <a href="https://collshp.com/promosdasamoficial?share_channel_code=1&view=storefront" class="link-btn" target="_blank" rel="noopener noreferrer" onclick="return trackClick('vitrine_shopee', this)">
-        <span class="thumb" style="background:#EE4D2D"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="#fff" d="M6 8h12l-1.2 12.2a1.5 1.5 0 0 1-1.5 1.3H8.7a1.5 1.5 0 0 1-1.5-1.3L6 8z"/><path fill="none" stroke="#fff" stroke-width="1.6" d="M9 8a3 3 0 0 1 6 0"/></svg></span>
-        <span class="label">Vitrine Shopee</span>
+      <a href="#" class="link-btn" onclick="trackClick('cupons_shein', this); openCouponModal(event, 'shein')">
+        <span class="thumb" style="background:#000000"><span class="thumb-mark" style="font-size:0.48rem">SHEIN</span></span>
+        <span class="label">Cupons Shein</span>
       </a>
 
       <a href="#" class="link-btn is-pending" data-pending="true" hidden onclick="return trackClick('aliexpress', this)">
